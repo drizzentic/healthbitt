@@ -29,3 +29,10 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
     //
 });
+
+Route::group(['prefix'=>'api'],function(){
+
+	Route::post('patient_data','PatientDataController@show');
+	Route::post('store_patient_data','PatientDataController@store');
+
+});
