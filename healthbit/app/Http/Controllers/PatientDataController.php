@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Response;
 use File;
+use GuzzleHttp\Client;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -18,7 +21,7 @@ class PatientDataController extends Controller
      */
     public function index()
     {
-        //
+        return;
     }
 
     /**
@@ -69,17 +72,29 @@ class PatientDataController extends Controller
      * @var [type]
      */
     
-     $reference=md5(base64_encode(json_encode($healthData)));
+       $reference=md5(base64_encode(json_encode($healthData)));
 
-     File::put($reference,json_encode($healthData));
+       File::put($reference,json_encode($healthData));
+        $process = new Process('curl -F "file=@'.$reference.'" http://127.0.0.1:5001/api/v0/add?encoding=json');
+        $process->run();
+       //File::delete($reference);
+        // executes after the command finishes
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
 
+        }
 
-     return File::get($reference);
-
-     //command to run
-     /**
-      * curl -F "file=@/home/derrick/Hotbed/Healthbit/api/healthbit/public/robots.txt" http://127.0.0.1:5001/api/v0/add?encoding=json
-      */
+        $response=$process->getOutput();
+        
+        //Obtain the hash from the command output
+        
+        //echo substr($response, 59,-3) .$response;
+        $ipfs_hash=substr($response, 59,-3);
+        //return $ipfs_hash;
+        $client = new Client(['base_uri' => 'http://127.0.0.1:1337']);       
+        $response = $client->request('POST', '/healthbit', ['query' => ['organization_id' => 'Mater','data_reference'=>$ipfs_hash]]);
+       
+        return $response->getBody();
    }
 
     /**
@@ -90,7 +105,9 @@ class PatientDataController extends Controller
      */
     public function show($id)
     {
-        //
+        //Retrieve data stored by ipfs
+        $process = new Process('curl -F "file=@'.$reference.'" http://127.0.0.1:5001/api/v0/add?encoding=json');
+        $process->run();
     }
 
     /**
