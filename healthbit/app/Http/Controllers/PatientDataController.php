@@ -92,7 +92,7 @@ class PatientDataController extends Controller
         $ipfs_hash=substr($response, 51,-3);
         //return $ipfs_hash;
         $client = new Client(['base_uri' => 'http://127.0.0.1:1337']);       
-        $response = $client->request('POST', '/healthbit', ['query' => ['organization_id' => 'Mater','data_reference'=>$ipfs_hash]]);
+        $response = $client->request('POST', '/healthbit', ['query' => ['organization_id' => 'healthbit','data_reference'=>$ipfs_hash]]);
        
         return $response->getBody();
    }
