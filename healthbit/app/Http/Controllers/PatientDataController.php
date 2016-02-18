@@ -89,9 +89,9 @@ class PatientDataController extends Controller
         //Obtain the hash from the command output
         
         //echo substr($response, 59,-3) .$response;
-        $ipfs_hash=substr($response, 59,-3);
+        $ipfs_hash=substr($response, 51,-3);
         //return $ipfs_hash;
-        $client = new Client(['base_uri' => 'http://52.72.68.155:1337']);       
+        $client = new Client(['base_uri' => 'http://127.0.0.1:1337']);       
         $response = $client->request('POST', '/healthbit', ['query' => ['organization_id' => 'Mater','data_reference'=>$ipfs_hash]]);
        
         return $response->getBody();
@@ -106,8 +106,14 @@ class PatientDataController extends Controller
     public function show($id)
     {
         //Retrieve data stored by ipfs
-        $process = new Process('curl http://127.0.0.1:5001/api/v0/get/'.$id.'?encoding=json');
+        $process = new Process('curl http://127.0.0.1:5001/api/v0/get?arg='.$id.'&encoding=json');
         $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+
+        }
+        return $process->getOutput();
     }
 
     /**
