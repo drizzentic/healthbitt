@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Response;
-use File;
+use Storage;
 use GuzzleHttp\Client;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -74,8 +74,8 @@ class PatientDataController extends Controller
     
        $reference=md5(base64_encode(json_encode($healthData)));
 
-       File::put($reference,json_encode($healthData));
-        $process = new Process('curl -F "file=@'.$reference.'" http://127.0.0.1:5001/api/v0/add?encoding=json');
+       Storage::put($reference,json_encode($healthData));
+        $process = new Process('curl -F "file=@'.storage_path('app')."/".$reference.'" http://127.0.0.1:5001/api/v0/add?encoding=json');
         $process->run();
        //File::delete($reference);
         // executes after the command finishes
@@ -83,7 +83,7 @@ class PatientDataController extends Controller
             throw new ProcessFailedException($process);
 
         }
-
+        Storage::delete($reference);
         $response=$process->getOutput();
         
         //Obtain the hash from the command output

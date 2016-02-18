@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['prefix'=>'api'],function(){
 
-	Route::get('patient_data/{id}','PatientDataController@show');
+	Route::get('patientdata/{id}','PatientDataController@show');
 	Route::post('store_patient_data','PatientDataController@store');
 
 });
