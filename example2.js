@@ -13,13 +13,13 @@ var organization_id=req.param('organization_id');
 var data_reference=req.param('data_reference');
 var asset = {
     'issueAddress': 'mzhXGXuKvW4j34yJNszVRwkhd7XSFiG37h',
-    'amount': 100,
+    'amount': 1,
     'divisibility': 0,
     'fee': 10000,
     'reissueable':false,
     'transfer': [{
     	'address': 'mzhXGXuKvW4j34yJNszVRwkhd7XSFiG37h',
-    	'amount': 100
+    	'amount': 1
     }],
     'metadata': {
         'assetName': organization_id,
