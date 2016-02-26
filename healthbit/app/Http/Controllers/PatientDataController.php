@@ -115,7 +115,7 @@ class PatientDataController extends Controller
         // Disable SSL verification
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         // Will return the response, if false it print the response
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         // Set the url
         curl_setopt($ch, CURLOPT_URL,$url);
         // Execute
@@ -128,7 +128,9 @@ class PatientDataController extends Controller
 
         }*/
 
-        return strstr($results, '{');
+        $items=json_decode(strstr($results, '{'));
+
+        return $items;
     }
 
     /**
