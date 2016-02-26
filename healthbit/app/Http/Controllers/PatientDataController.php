@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Hash;
+use Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -65,7 +66,7 @@ class PatientDataController extends Controller
                 ),
             'patient_metadata'=>array(
                 'organization_id'=>$organizationData,
-                'visit_date'=>new Date('YY:mm:dd H:i:s'),
+                'visit_date'=>Carbon::now(),
                 'zone'=>date_default_timezone_get()
                 )
             );
