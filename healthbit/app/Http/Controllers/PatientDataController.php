@@ -123,12 +123,11 @@ class PatientDataController extends Controller
         // Closing
         curl_close($ch);
         $results=file_get_contents($url);
-
         /*if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
 
         }*/
-        return $results['patient_history'];
+        return $results;
     }
 
     /**
