@@ -66,8 +66,7 @@ class PatientDataController extends Controller
                 ),
             'patient_metadata'=>array(
                 'organization_id'=>$organizationData,
-                'visit_date'=>Carbon::now(),
-                'zone'=>date_default_timezone_get()
+                'visit_date'=>Carbon::now()
                 )
             );
     /**
@@ -116,7 +115,7 @@ class PatientDataController extends Controller
             throw new ProcessFailedException($process);
 
         }
-        return $process->getOutput();
+        return json_encode($process->getOutput());
     }
 
     /**
