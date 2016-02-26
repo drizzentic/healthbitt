@@ -130,7 +130,7 @@ class PatientDataController extends Controller
 
         $items=strstr($results, '{');
 
-        return rtrim($items);
+        return array(rtrim($items));
     }
 
     /**
