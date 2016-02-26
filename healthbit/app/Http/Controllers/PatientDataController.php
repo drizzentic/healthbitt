@@ -128,7 +128,7 @@ class PatientDataController extends Controller
 
         }*/
 
-        $items=json_decode(strstr($results, '{'));
+        $items=strstr($results, '{');
 
         return $items->patient_history;
     }
