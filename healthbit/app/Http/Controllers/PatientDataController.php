@@ -127,7 +127,8 @@ class PatientDataController extends Controller
             throw new ProcessFailedException($process);
 
         }*/
-        return $results;
+
+        return strstr($results, '{');
     }
 
     /**
