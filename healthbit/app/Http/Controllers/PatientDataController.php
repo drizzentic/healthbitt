@@ -66,7 +66,7 @@ class PatientDataController extends Controller
             'patient_metadata'=>array(
                 'organization_id'=>$organizationData,
                 'visit_date'=>new DateTime('YY:mm:dd H:i:s'),
-                'zone'=>date_default_timezone_get();
+                'zone'=>date_default_timezone_get()
                 )
             );
     /**
