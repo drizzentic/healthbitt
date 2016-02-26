@@ -131,7 +131,12 @@ class PatientDataController extends Controller
         $items=strstr($results, '{');
         $decoded=json_decode($items, true);
 
-        return $decoded;
+        $results=array(
+            'patient_history'=>$decoded['patient_history'],
+            'patient_metadata'=>$decoded['patient_metadata']
+            );
+
+        return Response::json($results,200);
     }
 
     /**
