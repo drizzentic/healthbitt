@@ -35,4 +35,9 @@ Route::group(['prefix'=>'api'],function(){
 	Route::get('patientdata/{id}','PatientDataController@show');
 	Route::post('store_patient_data','PatientDataController@store');
 
+	/**
+	 * Ussd for Campaign
+	 */
+	Route::post('ussd','USSDController@store');
+
 });
