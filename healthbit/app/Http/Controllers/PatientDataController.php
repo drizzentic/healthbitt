@@ -109,13 +109,25 @@ class PatientDataController extends Controller
     {
         //Retrieve data stored by ipfs
         $process = new Process('curl http://127.0.0.1:5001/api/v0/get?arg='.$id.'&encoding=json');
-        $process->run();
-
-        if (!$process->isSuccessful()) {
+        //$process->run();
+        $url='http://127.0.0.1:5001/api/v0/get?arg='.$id.'&encoding=json';
+        $ch = curl_init();
+        // Disable SSL verification
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // Will return the response, if false it print the response
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Set the url
+        curl_setopt($ch, CURLOPT_URL,$url);
+        // Execute
+        $result=curl_exec($ch);
+        // Closing
+        curl_close($ch);
+        $results=file_get_contents($url);
+        /*if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
 
-        }
-        return json_encode($process->getOutput());
+        }*/
+        return $results;
     }
 
     /**
