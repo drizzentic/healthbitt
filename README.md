@@ -7,16 +7,16 @@ Healthbitt has been built using several components which makes it achieve the ob
 for storing and retrieving patient history.
 ## Technology Stack
 
-1. Coloured coin API.
+ 1. Coloured coin API.
  
 Coloured coin api provided a simple API which helped in signing and propagating transactions into the bitcoin testnet. The transactions
 include metadata that represents the patient data.
 
-2. Laravel framework.
+ 2. Laravel framework.
 
 Laravel framework provides a middleware that interconnects other platforms to the blockchain and DFS.
 
-3. IPFS.
+ 3. IPFS.
 
  IPFS provides a distributed filesystem where all the respective patient's medical files are stored anonymously
 
@@ -39,7 +39,7 @@ To obtain a testnet address and private key run the following command:
 
 To post a transaction on the bitcoin blockchain, the following steps must be followed.
  
-1. Create a raw transaction with inputs and outputs.
+ 1. Create a raw transaction with inputs and outputs.
 
 ```javascript 
 {
@@ -61,7 +61,7 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
     }
 ```
 
-2. Sign the raw transaction.
+ 2. Sign the raw transaction.
 
 ```javascript 
 var privateKey = bitcoin.ECKey.fromWIF(wif)
@@ -73,7 +73,7 @@ var privateKey = bitcoin.ECKey.fromWIF(wif)
     return tx.toHex();
 ```
 
-3. Broadcast the signed transaction.
+ 3. Broadcast the signed transaction.
 
 ```javascript
  var transaction = {
@@ -92,14 +92,14 @@ var privateKey = bitcoin.ECKey.fromWIF(wif)
 
 The three services must be started for any transaction to be successful
 
-  1. Confirm IPFS is started by running this command on your terminal.
+ 1. Confirm IPFS is started by running this command on your terminal.
 
 
 ```
 sudo ipfs daemon
 ```
   
-  2. Start the nodejs bitcoin application server.
+ 2. Start the nodejs bitcoin application server.
 ```javascript 
 node app.js
 ```
