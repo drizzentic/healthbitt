@@ -109,7 +109,8 @@ node app.js
 To post a medical file to the bitcoin and ipfs network, the following calls need to be made to the API with respective data. The data used here is just a 
 sample of a medical record.
 
-```curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 42ad15a5-e1c5-ecd1-1f8a-f4f9b027523e" -d '{
+```
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 42ad15a5-e1c5-ecd1-1f8a-f4f9b027523e" -d '{
   "patient_history": {
     "prescriptions": [
       {
