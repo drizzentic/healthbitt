@@ -93,6 +93,12 @@ class PatientDataController extends Controller
         //echo substr($response, 59,-3) .$response;
         $ipfs_hash=substr($response, 51,-3);
         //return $ipfs_hash;
+        /**
+        Retrieve the returned hash and store it in somewhere secure. 
+        This is the reference to the created file and will be required for subsequent retrievals
+        The reference can either be mailed or sent via a secure channel to the patient.
+        */
+        
         $client = new Client(['base_uri' => 'http://127.0.0.1:1337']);      
 
         //Post the request to the node running blockchain 
