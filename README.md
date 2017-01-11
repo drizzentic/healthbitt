@@ -6,6 +6,7 @@ to store patient files references. The references are used to verify an audit of
 Healthbitt has been built using several components which makes it achieve the objectives of creating a secure, anonymized and distributed ecosystem
 for storing and retrieving patient history.
 ## Technology Stack
+
 1. Coloured coin API.
  
 Coloured coin api provided a simple API which helped in signing and propagating transactions into the bitcoin testnet. The transactions
@@ -15,26 +16,25 @@ include metadata that represents the patient data.
 
 Laravel framework provides a middleware that interconnects other platforms to the blockchain and DFS.
 
-3.  IPFS.
+3. IPFS.
 
  IPFS provides a distributed filesystem where all the respective patient's medical files are stored anonymously
 
 ## Setup
+
  To Setup the Healthbitt ecosystem you need to do the following:
  
- ```
- 1. setup nodejs. Find instructions here https://nodejs.org
-```
  
- ```
-2. npm install --save bitcoinjs-lib@1.5.8 to install the bitcoin js dependency.
- ```
+ 1. *setup nodejs. Find instructions here https://nodejs.org*
+
+ 2. *npm install --save bitcoinjs-lib@1.5.8* to install the bitcoin js dependency.
+
 
 
 ### Getting a testnet address and private key.
 To obtain a testnet address and private key run the following command:
 
-```javascript
+```
 node address.js
 ```
 To post a transaction on the bitcoin blockchain, the following steps must be followed.
@@ -59,6 +59,7 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
         'description':data_reference 
     }
 ```
+
  2. Sign the raw transaction.
 
 ```javascript var privateKey = bitcoin.ECKey.fromWIF(wif)
