@@ -39,7 +39,7 @@ To obtain a testnet address and private key run the following command:
 
 To post a transaction on the bitcoin blockchain, the following steps must be followed.
  
- 1. Create a raw transaction with inputs and outputs.
+1. Create a raw transaction with inputs and outputs.
 
 ```javascript 
 {
@@ -61,7 +61,7 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
     }
 ```
 
- 2. Sign the raw transaction.
+2. Sign the raw transaction.
 
 ```javascript 
 var privateKey = bitcoin.ECKey.fromWIF(wif)
@@ -73,9 +73,9 @@ var privateKey = bitcoin.ECKey.fromWIF(wif)
     return tx.toHex();
 ```
 
- 3. Broadcast the signed transaction.
+3. Broadcast the signed transaction.
 
- ```javascript
+```javascript
  var transaction = {
 		    'txHex': signedTxHex
 			}
