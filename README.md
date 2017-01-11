@@ -71,7 +71,7 @@ var privateKey = bitcoin.ECKey.fromWIF(wif)
         tx.sign(i, privateKey)
     }
     return tx.toHex();
-    ```
+```
 
  3. Broadcast the signed transaction.
 
