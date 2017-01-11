@@ -38,7 +38,8 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
  
  1. Create a raw transaction with inputs and outputs.
 
-```javascript {
+```
+javascript {
     //Put your testnet address
     'issueAddress': '',
     'amount': 1,
@@ -54,11 +55,13 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
         'assetName': organization_id,
         'issuer': organization_id,
         'description':data_reference 
-    }```
+    }
+    ```
 
  2. Sign the raw transaction.
 
-```javascript
+```
+javascript
     var privateKey = bitcoin.ECKey.fromWIF(wif)
     var tx = bitcoin.Transaction.fromHex(unsignedTx)
     var insLength = tx.ins.length
@@ -70,7 +73,8 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
 
  3. Broadcast the signed transaction.
 
- ```javascript
+ ```
+ javascript
  var transaction = {
 		    'txHex': signedTxHex
 			}
