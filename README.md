@@ -8,16 +8,16 @@ for storing and retrieving patient history.
 ##Technology Stack
 1. Coloured coin API.
  
- ...Coloured coin api provided a simple API which helped in signing and propagating transactions into the bitcoin testnet. The transactions
- ...include metadata that represents the patient data.
+Coloured coin api provided a simple API which helped in signing and propagating transactions into the bitcoin testnet. The transactions
+include metadata that represents the patient data.
 
 2. Laravel framework.
 
- ...Laravel framework provides a middleware that interconnects other platforms to the blockchain and DFS.
+Laravel framework provides a middleware that interconnects other platforms to the blockchain and DFS.
 
 3.  IPFS.
 
- ...IPFS provides a distributed filesystem where all the respective patient's medical files are stored anonymously
+ IPFS provides a distributed filesystem where all the respective patient's medical files are stored anonymously
 
 ##Setup
  To Setup the Healthbitt ecosystem you need to do the following:
@@ -38,7 +38,7 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
  
  1. Create a raw transaction with inputs and outputs.
 
-  ```javascript {
+```javascript {
     //Put your testnet address
     'issueAddress': '',
     'amount': 1,
@@ -59,7 +59,7 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
 
  2. Sign the raw transaction.
 
-   ```javascript
+```javascript
     var privateKey = bitcoin.ECKey.fromWIF(wif)
     var tx = bitcoin.Transaction.fromHex(unsignedTx)
     var insLength = tx.ins.length
@@ -86,10 +86,10 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
 
 ###Starting the services.
 
- ...The three services must be started for any transaction to be successful
+The three services must be started for any transaction to be successful
 
   1. Confirm IPFS is started by running this command on your termina
-  ``` sudo ipfs daemon```
+``` sudo ipfs daemon```
   
   2. Start the nodejs bitcoin application server.
 ```javascript 
@@ -97,7 +97,7 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
     ```
 
   3. Laravel application server is started.
-  ...Make sure the application server is available and the API endpoints are reachable.
+  Make sure the application server is available and the API endpoints are reachable.
 
 
 ###Creating a medical file
@@ -158,7 +158,10 @@ sample of a medical record.
 ###Retrieving saved files from the network
 
 To retrieve the files the user can access any ipfs node in the world and run the following command.
-```curl -X GET -H "Cache-Control: no-cache" -H "Postman-Token: 7a4a75f1-6c5a-ff73-8308-2ad550c91285" "http://hostname:port/api/patientdata/%7Bfile_reference%7D"
+
+```
+curl -X GET -H "Cache-Control: no-cache" -H "Postman-Token: 7a4a75f1-6c5a-ff73-8308-2ad550c91285" "http://hostname:port/api/patientdata/%7Bfile_reference%7D"
+
 ```
 
 #Conclusion
