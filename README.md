@@ -34,9 +34,9 @@ Laravel framework provides a middleware that interconnects other platforms to th
 ### Getting a testnet address and private key.
 To obtain a testnet address and private key run the following command:
 
-```
-node address.js
-```
+**node address.js**
+
+
 To post a transaction on the bitcoin blockchain, the following steps must be followed.
  
  1. Create a raw transaction with inputs and outputs.
