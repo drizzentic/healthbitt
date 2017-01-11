@@ -59,7 +59,7 @@ To post a transaction on the bitcoin blockchain, the following steps must be fol
         'issuer': organization_id,
         'description':data_reference 
     }
-    ```
+```
 
  2. Sign the raw transaction.
 
