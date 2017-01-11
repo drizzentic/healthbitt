@@ -30,16 +30,15 @@ Laravel framework provides a middleware that interconnects other platforms to th
 ###Getting a testnet address and private key.
 To obtain a testnet address and private key run the following command:
 
-```javascript
- node address.js
+```
+node address.js
  ```
 
 To post a transaction on the bitcoin blockchain, the following steps must be followed.
  
  1. Create a raw transaction with inputs and outputs.
 
-```
-javascript {
+```javascript {
     //Put your testnet address
     'issueAddress': '',
     'amount': 1,
@@ -57,11 +56,9 @@ javascript {
         'description':data_reference 
     }
     ```
-
  2. Sign the raw transaction.
 
-```
-javascript
+```javascript
     var privateKey = bitcoin.ECKey.fromWIF(wif)
     var tx = bitcoin.Transaction.fromHex(unsignedTx)
     var insLength = tx.ins.length
@@ -73,8 +70,7 @@ javascript
 
  3. Broadcast the signed transaction.
 
- ```
- javascript
+ ```javascript
  var transaction = {
 		    'txHex': signedTxHex
 			}
@@ -92,7 +88,8 @@ javascript
 The three services must be started for any transaction to be successful
 
   1. Confirm IPFS is started by running this command on your termina
-``` sudo ipfs daemon```
+```sudo ipfs daemon
+```
   
   2. Start the nodejs bitcoin application server.
 ```javascript 
