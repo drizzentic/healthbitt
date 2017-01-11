@@ -29,6 +29,8 @@ Laravel framework provides a middleware that interconnects other platforms to th
 
  2. *npm install --save bitcoinjs-lib@1.5.8* to install the bitcoin js dependency.
 
+ 3. Install ipfs binaries and make it executable globally
+
 
 
 ### Getting a testnet address and private key.
